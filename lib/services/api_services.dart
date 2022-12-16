@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
-
-import '../models/article_model.dart';
 import 'package:http/http.dart' as http;
 
+import '../models/article_model.dart';
+import '../shared/widgets/widgets.dart';
 import 'hive_services.dart';
 
 class ApiServices {
@@ -20,14 +20,18 @@ class ApiServices {
             .map<Article>((e) => Article.fromJson(e))
             .toList();
         await HiveService().addBoxes('article_box', _articles);
-
         log('$_articles');
+        ToastMessage.success('success');
         return _articles;
       }
     } on SocketException catch (e) {
+      ToastMessage.error('No internet connection!!');
+      _articles = await HiveService().getSavedData;
       log('$e');
       return _articles;
     } on Error catch (e) {
+      ToastMessage.error('$e');
+      _articles = await HiveService().getSavedData;
       log('$e');
       return _articles;
     }

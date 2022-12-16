@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class CustomNetworkImage extends StatelessWidget {
   final String url;
@@ -19,5 +20,29 @@ class CustomNetworkImage extends StatelessWidget {
           color: Colors.grey[300],
           child: const Center(child: Text('Could not load image.'))),
     );
+  }
+}
+
+class ToastMessage {
+  static success(String message) {
+    _message(message, Colors.white, Colors.green);
+  }
+
+  static _message(String message, Color backColor, Color textColor) {
+    Fluttertoast.showToast(
+        msg: message,
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        textColor: textColor,
+        backgroundColor: backColor,
+        timeInSecForIosWeb: 2);
+  }
+
+  static error(String message) {
+    _message(message, Colors.red, Colors.white);
+  }
+
+  static info(String message) {
+    _message(message, Colors.black, Colors.white);
   }
 }
