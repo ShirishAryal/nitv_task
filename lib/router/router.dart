@@ -7,7 +7,6 @@ class NewsAppRouter {
     switch (settings.name) {
       case '/':
         return MaterialPageRoute(builder: (_) => const HomePage());
-
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
