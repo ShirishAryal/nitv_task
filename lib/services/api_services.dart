@@ -11,10 +11,10 @@ class ApiServices {
   List<Article> _articles = [];
   fetchNews() async {
     try {
-      final _response = await http.get(Uri.parse(_url));
-      if (_response.statusCode == 200) {
-        final _data = jsonDecode(_response.body);
-        _articles = await _data['articles']!
+      final response = await http.get(Uri.parse(_url));
+      if (response.statusCode == 200) {
+        final data = jsonDecode(response.body);
+        _articles = await data['articles']!
             .map<Article>((e) => Article.fromJson(e))
             .toList();
         log('$_articles');
