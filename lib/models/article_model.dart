@@ -1,10 +1,22 @@
+import 'package:hive/hive.dart';
+
+part 'article_model.g.dart';
+
+@HiveType(typeId: 1)
 class Article {
+  @HiveField(0)
   String? author;
+  @HiveField(1)
   String? title;
+  @HiveField(2)
   String? description;
+  @HiveField(3)
   String? url;
+  @HiveField(4)
   String? urlToImage;
+  @HiveField(5)
   String? publishedAt;
+  @HiveField(6)
   String? content;
 
   Article(
