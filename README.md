@@ -1,16 +1,13 @@
 # nitv_task
+This project uses newsapi api to fetch data show it to the UI and in case of error we fetch data from local storage (Hive is used) if available, otherwise we can try to fetch data again. 
 
-A new Flutter project.
+## Usage
+Get packages using
 
-## Getting Started
+```flutter pub get```
 
-This project is a starting point for a Flutter application.
+And run hiveadapter build using 
 
-A few resources to get you started if this is your first Flutter project:
+```flutter packages pub run build_runner build  --delete-conflicting-outputs```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Just run the project now..
