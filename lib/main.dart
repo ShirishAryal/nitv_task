@@ -8,7 +8,6 @@ void main() {
 }
 
 class App extends StatelessWidget {
-  static GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
   const App({Key? key}) : super(key: key);
 
   @override
@@ -41,7 +40,6 @@ class App extends StatelessWidget {
       ),
       onGenerateRoute: NewsAppRouter.generateRoute,
       home: const HomePage(),
-      navigatorKey: navigatorKey,
     );
   }
 }
