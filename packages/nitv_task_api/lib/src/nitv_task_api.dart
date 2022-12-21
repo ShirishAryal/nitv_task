@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
+import 'package:hive_cache_api/hive_cache_api.dart';
 import 'package:http/http.dart';
 
 import 'models/model.dart';
@@ -20,6 +21,7 @@ class NewsNotFoundFailure implements Exception {
 }
 
 class NitvTaskApiClient {
+  final HiveCacheApi _hiveCacheApi = HiveCacheApi();
   static const _endpoint =
       "https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=a2059254c7b94144adb9c27f4a2a5b32";
 
@@ -37,11 +39,19 @@ class NitvTaskApiClient {
 
       if (results.isEmpty) throw NewsNotFoundFailure('No Data Found');
 
+      _hiveCacheApi.cacheJson(keyValue: 'articles', encodedJson: jsonEncode(results));
+
       List<Article> articles = results.map<Article>((e) => Article.fromJson(e)).toList();
 
       return articles;
     } on SocketException {
-      throw 'Check Your Internet Connection';
+      var data = _hiveCacheApi.retrieveJson(keyValue: 'articles');
+      if (data != null) {
+        List<Article> articles = jsonDecode(data).map<Article>((e) => Article.fromJson(e)).toList();
+        return articles;
+      } else {
+        throw 'Check Your Internet Connection';
+      }
     } on Error catch (e) {
       log(e.toString());
       throw 'Something went wrong';

@@ -12,6 +12,8 @@ dependencies:
   flutter:
     sdk: flutter
   http:
+  hive_cache_api:
+    path: ../hive_cache_api
 
 dev_dependencies:
   flutter_test:
