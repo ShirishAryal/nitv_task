@@ -1,21 +1,27 @@
-name: nivt_task_repository
+name: nitv_task_repository
 description: A new Flutter package project.
 version: 0.0.1
+publish_to: none
 homepage:
 
 environment:
   sdk: '>=2.18.6 <3.0.0'
   flutter: ">=1.17.0"
 
+
 dependencies:
   flutter:
     sdk: flutter
+  json_annotation: ^4.7.0
+  nitv_task_api:
+    path: ../nitv_task_api
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^2.0.0
-
+  build_runner: ^2.3.3
+  json_serializable: ^6.5.4
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
