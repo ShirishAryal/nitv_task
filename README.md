@@ -5,9 +5,3 @@ This project uses newsapi api to fetch data show it to the UI and in case of err
 Get packages using
 
 ```flutter pub get```
-
-And run hiveadapter build using 
-
-```flutter packages pub run build_runner build  --delete-conflicting-outputs```
-
-Just run the project now..
