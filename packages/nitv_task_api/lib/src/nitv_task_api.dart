@@ -19,7 +19,7 @@ class NewsNotFoundFailure implements Exception {
   }
 }
 
-class NewsApiClient {
+class NitvTaskApiClient {
   static const _endpoint =
       "https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=a2059254c7b94144adb9c27f4a2a5b32";
 

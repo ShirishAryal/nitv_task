@@ -2,16 +2,16 @@ import 'package:nitv_task_api/nitv_task_api.dart';
 
 import 'models/models.dart';
 
-class NewsRepository {
-  final NewsApiClient _newsApiClient;
+class NitvTaskRepository {
+  final NitvTaskApiClient _nitvTaskApiClient;
 
-  NewsRepository({NewsApiClient? newsApiClient}) : _newsApiClient = newsApiClient ?? NewsApiClient();
+  NitvTaskRepository({NitvTaskApiClient? nitvTaskApiClient}) : _nitvTaskApiClient = nitvTaskApiClient ?? NitvTaskApiClient();
 
   static const _content =
       "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupi datat non proident,sunt in culpa qui officia deserunt mollit anim id est laborum.";
 
   Future<List<News>> getNews() async {
-    final articles = await _newsApiClient.getArticles();
+    final articles = await _nitvTaskApiClient.getArticles();
 
     List<News> news = [];
 
